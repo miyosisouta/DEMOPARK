@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    [SerializeField] GameObject m_playerObject;
-    PlayerController m_playerScript;
+    List<GameObject> m_playerGameObjects = new List<GameObject>();
+    List<PlayerController> m_playerControllers = new List<PlayerController>();
+
     [SerializeField] GameObject m_doorInteractionZoneCheckObject;
     DoorInteractionZoneCheck m_doorInteractionZoneCheckScript;
     [SerializeField] GameObject m_clearTextObject;
@@ -22,7 +23,14 @@ public class DoorController : MonoBehaviour
     /// </summary>
     void Start()
     {
-        m_playerScript = m_playerObject.GetComponent<PlayerController>();
+        //リスト内のゲームオブジェクトの中にあるPlayerをすべて見つける
+        m_playerGameObjects = new List<GameObject>(GameObject.FindGameObjectsWithTag("Player"));
+        // 見つけたPlayerの中にあるPlayerControllerをリストの中に入れる
+        foreach(GameObject playerGameObject in m_playerGameObjects)
+        {
+            m_playerControllers.Add(playerGameObject.GetComponent<PlayerController>());
+        }
+
         m_doorInteractionZoneCheckScript = m_doorInteractionZoneCheckObject.GetComponent<DoorInteractionZoneCheck>();
     }
 
@@ -54,7 +62,11 @@ public class DoorController : MonoBehaviour
 
             if(m_isClear && Input.GetKeyDown("w"))
             {
-                m_playerStop.SetActive(false);　//playerを停止
+                foreach(GameObject playerGameObject in m_playerGameObjects)
+                {
+                    playerGameObject.SetActive(false);
+                }
+                //m_playerStop.SetActive(false);　//playerを停止
                 m_canvasPlay.SetActive(true); //clearTextを稼働
                 //ここでシーン状態変更
             }
