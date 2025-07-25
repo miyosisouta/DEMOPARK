@@ -12,8 +12,6 @@ public class MoveGround : MonoBehaviour
     public bool m_isMoving = false;
     private int currentWaypointIndex = 0;
 
-    
-
     // 床の移動速度
     [SerializeField] private float speed = 2.0f;
 
@@ -53,19 +51,6 @@ public class MoveGround : MonoBehaviour
         //現在の床の位置から、目的地に向かって移動する
         transform.position = Vector2.MoveTowards(transform.position,
             waypoints[currentWaypointIndex].transform.position, Time.deltaTime * speed);
-
-        //
-        float distance = transform.position.magnitude - waypoints[currentWaypointIndex].transform.position.magnitude; // 現在の床の位置と目的地の距離を計算
-        float destroyDistance = -1.7f; // 目的地のオブジェクトを削除する距離
-
-        if (distance <= destroyDistance)
-        {
-            Destroy(waypoints[currentWaypointIndex]); // 目的地のオブジェクトを削除
-            waypoints[currentWaypointIndex] = null; // 配列から削除
-            m_isMoving = false; // 床の移動を停止
-        }
-       
     }
 
-    
 }
