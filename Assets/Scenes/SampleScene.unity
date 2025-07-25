@@ -345,6 +345,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &828871161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9020095609394091576, guid: ed3a9263fad52c54b9626cece8720e9f, type: 3}
+  m_PrefabInstance: {fileID: 1804797324518487175}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1163039485 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2200162164016760359, guid: 760635732e16bf446bff1d286c2eb66d, type: 3}
@@ -371,6 +376,11 @@ GameObject:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5418089797844733779, guid: d8ae44b4d2662dc4b94f9e5b981623ac, type: 3}
   m_PrefabInstance: {fileID: 595643394242090472}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1686098544 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3021109829475630552, guid: dbf9b84f6823a6148867b174142cfd3e, type: 3}
+  m_PrefabInstance: {fileID: 3889738407986712483}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1851803913
 GameObject:
@@ -517,6 +527,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6060221813198864214, guid: d8ae44b4d2662dc4b94f9e5b981623ac, type: 3}
+      propertyPath: m_canvasPlay
+      value: 
+      objectReference: {fileID: 828871161}
+    - target: {fileID: 6060221813198864214, guid: d8ae44b4d2662dc4b94f9e5b981623ac, type: 3}
+      propertyPath: m_playerStop
+      value: 
+      objectReference: {fileID: 1686098544}
+    - target: {fileID: 6060221813198864214, guid: d8ae44b4d2662dc4b94f9e5b981623ac, type: 3}
+      propertyPath: m_clearTextPlay
+      value: 
+      objectReference: {fileID: 1242864363}
     - target: {fileID: 6060221813198864214, guid: d8ae44b4d2662dc4b94f9e5b981623ac, type: 3}
       propertyPath: m_clearTextObject
       value: 
@@ -757,9 +779,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4683814494313830546, guid: 760635732e16bf446bff1d286c2eb66d, type: 3}
+      propertyPath: m_canvasPlay
+      value: 
+      objectReference: {fileID: 828871161}
+    - target: {fileID: 4683814494313830546, guid: 760635732e16bf446bff1d286c2eb66d, type: 3}
+      propertyPath: m_playerStop
+      value: 
+      objectReference: {fileID: 1686098544}
+    - target: {fileID: 4683814494313830546, guid: 760635732e16bf446bff1d286c2eb66d, type: 3}
       propertyPath: m_targetObject
       value: 
       objectReference: {fileID: 2052262328}
+    - target: {fileID: 4683814494313830546, guid: 760635732e16bf446bff1d286c2eb66d, type: 3}
+      propertyPath: m_clearTextPlay
+      value: 
+      objectReference: {fileID: 828871161}
     m_RemovedComponents:
     - {fileID: 6848851301390944002, guid: 760635732e16bf446bff1d286c2eb66d, type: 3}
     m_RemovedGameObjects: []

@@ -8,12 +8,15 @@ public class DoorController : MonoBehaviour
     PlayerController m_playerScript;
     [SerializeField] GameObject m_doorInteractionZoneCheckObject;
     DoorInteractionZoneCheck m_doorInteractionZoneCheckScript;
-    //[SerializeField] GameObject m_clearTextObject;
-    //ClearText m_clearTextScript;
+    [SerializeField] GameObject m_clearTextObject;
+    ClearText m_clearTextScript;
 
-    public GameObject m_targetObject;
+    public GameObject m_targetObject; // OpenDoorのアクティブの切り替え
+    public GameObject m_playerStop; //  playerのアクティブの切り替え
+    public GameObject m_canvasPlay; // Canvasののアクティブの切り替え
 
     public bool m_isClear = false;
+
     /// <summary>
     /// スタート処理
     /// </summary>
@@ -36,9 +39,6 @@ public class DoorController : MonoBehaviour
             {
                 //アクティブ状態かの状態の確認
                 bool openDoorActive = m_targetObject.activeSelf; //openTheDoorオブジェクト
-                bool closeDoorActive = gameObject.activeSelf; //closeDoorオブジェクト
-                bool playerActive = m_playerObject.activeSelf; //playerオブジェクト
-                //bool clearTextActive = m_clearTextObject.activeSelf; //クリアオブジェクト
 
                 if (!openDoorActive) //openTheDoorオブジェクトが稼働していないなら
                 {
@@ -54,8 +54,8 @@ public class DoorController : MonoBehaviour
 
             if(m_isClear && Input.GetKeyDown("w"))
             {
-                m_playerObject.SetActive(false);　//playerを停止
-                //m_clearTextObject.SetActive(true); //clearTextを稼働
+                m_playerStop.SetActive(false);　//playerを停止
+                m_canvasPlay.SetActive(true); //clearTextを稼働
                 //ここでシーン状態変更
             }
         }

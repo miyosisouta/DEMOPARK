@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rbody2D; // Rigidbody2Dを定義
  
     public const float m_moveSpeed = 5.0f; //プレイヤーの移動速度
-
     private Animator m_anim;
     private bool m_jump = false;
 
@@ -41,7 +40,7 @@ public class PlayerController : MonoBehaviour
         //キャラクターの移動
         Vector3 movement = new Vector2(horizontal, vetrical);
         transform.position += movement * m_moveSpeed * Time.deltaTime;
-
+       
         if(horizontal != 0.0f)
         {
             directionX = horizontal;
