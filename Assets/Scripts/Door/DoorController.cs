@@ -13,7 +13,6 @@ public class DoorController : MonoBehaviour
     ClearText m_clearTextScript;
 
     public GameObject m_targetObject; // OpenDoorのアクティブの切り替え
-    public GameObject m_playerStop; //  playerのアクティブの切り替え
     public GameObject m_canvasPlay; // Canvasののアクティブの切り替え
 
     public bool m_isClear = false;
@@ -66,7 +65,6 @@ public class DoorController : MonoBehaviour
                 {
                     playerGameObject.SetActive(false);
                 }
-                //m_playerStop.SetActive(false);　//playerを停止
                 m_canvasPlay.SetActive(true); //clearTextを稼働
                 //ここでシーン状態変更
             }
