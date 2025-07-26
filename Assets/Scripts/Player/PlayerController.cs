@@ -22,6 +22,11 @@ public class PlayerController : MonoBehaviour
 
     private float directionX;
 
+    // プレイヤーが右に移動しているかどうかのフラグ
+    public bool m_isMovingRight = false;
+    // プレイヤーが左に移動しているかどうかのフラグ   
+    public bool m_isMovingLeft = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,10 +54,14 @@ public class PlayerController : MonoBehaviour
         if (directionX >= 0.0f)
         {
             transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            m_isMovingRight = true;
+            m_isMovingLeft = false;
         }
         else
         {
             transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+            m_isMovingLeft = true;
+            m_isMovingRight = false;
         }
 
             //アニメーションの切り替え

@@ -12,8 +12,6 @@ public class MoveGround : MonoBehaviour
     public bool m_isMoving = false;
     private int currentWaypointIndex = 0;
 
-    
-
     // °‚ÌˆÚ“®‘¬“x
     [SerializeField] private float speed = 2.0f;
 
