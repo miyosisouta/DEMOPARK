@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class UpGround : MonoBehaviour
 {
+   // °‚ªˆÚ“®’†‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO
     public bool m_isMoving = false;
-    ////
+
+    //waypoints‚Í°‚ª‚Ç‚±‚Ü‚ÅˆÚ“®‚·‚é‚©
     [SerializeField] private GameObject[] waypoints;
     private int currentWaypointIndex = 0;
+
     // °‚ÌˆÚ“®‘¬“x
     [SerializeField] private float speed = 2.0f;
 
