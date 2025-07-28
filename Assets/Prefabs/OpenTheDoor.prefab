@@ -98,11 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1c9ccd0b4081814b97c895fc671ddfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerObject: {fileID: 3021109829475630552, guid: dbf9b84f6823a6148867b174142cfd3e, type: 3}
   m_doorInteractionZoneCheckObject: {fileID: 5418089797844733779}
+  m_playerControllerObject: {fileID: 3021109829475630552, guid: dbf9b84f6823a6148867b174142cfd3e, type: 3}
   m_clearTextObject: {fileID: 9020095609394091576, guid: ed3a9263fad52c54b9626cece8720e9f, type: 3}
   m_targetObject: {fileID: 1836733869850291922}
-  m_playerStop: {fileID: 3021109829475630552, guid: dbf9b84f6823a6148867b174142cfd3e, type: 3}
   m_canvasPlay: {fileID: 9020095609394091576, guid: ed3a9263fad52c54b9626cece8720e9f, type: 3}
   m_isClear: 0
 --- !u!1 &5418089797844733779
@@ -116,7 +115,6 @@ GameObject:
   - component: {fileID: 4923544554612376815}
   - component: {fileID: 8744282816016459787}
   - component: {fileID: 1867208779265102173}
-  - component: {fileID: 496102336206948403}
   m_Layer: 0
   m_Name: DoorInteractionZone
   m_TagString: Untagged
@@ -194,17 +192,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f66cc2984112f5448438c6953ddeffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &496102336206948403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5418089797844733779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4c9ac1c7265f54b9546799e4b10fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
