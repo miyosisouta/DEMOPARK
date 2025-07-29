@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class DoorController : MonoBehaviour
 {
@@ -27,11 +29,19 @@ public class DoorController : MonoBehaviour
     private bool m_openDoorActive;
     private bool m_closeDoorActive;
 
+    private float m_timer = 0.0f; // タイマー
+
     /// <summary>
     /// スタート処理
     /// </summary>
     void Start()
     {
+        //SceneがTitleでない場合、m_titleをfalseにする
+        if (SceneManager.GetActiveScene().name != "TitleScane")
+        {
+            m_onTitle = false;
+
+        }
         //インプットアクションを使用可能にする
         m_inputActions = new DEMOPARK_2025();
         m_inputActions.Enable();
@@ -65,13 +75,14 @@ public class DoorController : MonoBehaviour
                     {
                         gameObject.SetActive(false); //closeTheDoorを停止
                         m_targetObject.SetActive(true); //openTheDoorを稼働させる
+                        m_isClear = true;
                     }
                 }
 
                 // ドアが開いているとき
                 if (IsOpenDoorActive())
                 {
-                    m_isClear = true;
+                   
                     // クリアフラグが立っている場合
                     if (m_isClear)
                     {
@@ -79,10 +90,28 @@ public class DoorController : MonoBehaviour
                         if (m_inputActions.Player.InDoor.triggered)
                         {
                             playerGameObject.SetActive(false);
+
                             if (!m_onTitle) // todo test
                             {
                                 //ゲームに接続したプレイヤーが全員扉に入ったらゲームクリア
                                 CheckClear();
+
+                                while (true)
+                                {
+                                    // タイマーを更新
+                                    m_timer += Time.deltaTime;
+                                    // ロード時間を超えたらシーンをロード
+                                    if (m_timer >= 10.0f)
+                                    {
+                                        // シーンをロード
+                                        SceneManager.LoadScene("SelectScene");
+                                        break; // ループを抜ける
+                                    }
+                                }
+                            }
+                            else if (m_onTitle) // タイトル画面にいる場合
+                            {
+                                SceneManager.LoadScene("SelectScene");
                             }
                             //m_clearedPlayerCount++;
                         }
@@ -106,6 +135,7 @@ public class DoorController : MonoBehaviour
     {
         m_canvasPlay.SetActive(true); //clearTextを稼働
                                       //ここでシーン状態変更
+        
     }
     /// <summary>
     /// 接続しているプレイヤーをすべて見つける

@@ -679,6 +679,94 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "StageSelect",
+            "id": "e840097c-a864-4d85-9e13-0624582c41e0",
+            "actions": [
+                {
+                    "name": "OneStage",
+                    "type": "Button",
+                    "id": "ffe83a14-5a9d-4700-9ca0-6780f3b1b9fd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TwoStage",
+                    "type": "Button",
+                    "id": "ac5e379a-a6f6-4393-a392-27912347a3ea",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ThreeStage",
+                    "type": "Button",
+                    "id": "1abd6175-7a14-44c8-962d-0acd6a242118",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AButton",
+                    "type": "Button",
+                    "id": "56f61050-11de-4791-a4ab-4293f60e5e94",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "35c1987a-2d5c-4286-b2ca-a15e0b1a60c8",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OneStage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf0ffd5e-9dbb-425a-9ce0-8f88a7fd486e",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TwoStage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e029b5d-c540-4748-8dbe-973cceeab73d",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThreeStage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "187f82b3-fd78-4bcc-952f-019db896620e",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
