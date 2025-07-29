@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private Animator m_anim; //アニメーター
 
     public int m_playerIndex = 0; //プレイヤー接続数
-
+    public bool m_dead = false;
     // SerializeFieldをつけることでUnity上で値を変えることが可能
     [SerializeField]private Vector2 m_move = Vector2.zero; //プレイヤーの移動速度
     [SerializeField]private const float m_setGravity = -9.0f; // 重力
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         m_playerIndex = gameObject.GetComponent<PlayerInput>().playerIndex;
 
         //コントローラーの番号ログ
-        Debug.Log(m_playerIndex);
+        //Debug.Log(m_playerIndex);
 
         //プレイヤーの接続人数を更新
         if (m_playerIndex > m_playerIndexCount)
@@ -125,6 +125,7 @@ public class PlayerController : MonoBehaviour
             }
 
 
+
         }
     }
 
@@ -154,4 +155,6 @@ public class PlayerController : MonoBehaviour
             m_jumpPower = 0.0f;
         }
     }
+
+
 }
