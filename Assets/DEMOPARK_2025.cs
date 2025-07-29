@@ -701,6 +701,94 @@ public partial class @DEMOPARK_2025: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""StageSelect"",
+            ""id"": ""e840097c-a864-4d85-9e13-0624582c41e0"",
+            ""actions"": [
+                {
+                    ""name"": ""OneStage"",
+                    ""type"": ""Button"",
+                    ""id"": ""ffe83a14-5a9d-4700-9ca0-6780f3b1b9fd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TwoStage"",
+                    ""type"": ""Button"",
+                    ""id"": ""ac5e379a-a6f6-4393-a392-27912347a3ea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ThreeStage"",
+                    ""type"": ""Button"",
+                    ""id"": ""1abd6175-7a14-44c8-962d-0acd6a242118"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""56f61050-11de-4791-a4ab-4293f60e5e94"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""35c1987a-2d5c-4286-b2ca-a15e0b1a60c8"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OneStage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf0ffd5e-9dbb-425a-9ce0-8f88a7fd486e"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TwoStage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9e029b5d-c540-4748-8dbe-973cceeab73d"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThreeStage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""187f82b3-fd78-4bcc-952f-019db896620e"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -785,6 +873,12 @@ public partial class @DEMOPARK_2025: IInputActionCollection2, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        // StageSelect
+        m_StageSelect = asset.FindActionMap("StageSelect", throwIfNotFound: true);
+        m_StageSelect_OneStage = m_StageSelect.FindAction("OneStage", throwIfNotFound: true);
+        m_StageSelect_TwoStage = m_StageSelect.FindAction("TwoStage", throwIfNotFound: true);
+        m_StageSelect_ThreeStage = m_StageSelect.FindAction("ThreeStage", throwIfNotFound: true);
+        m_StageSelect_AButton = m_StageSelect.FindAction("AButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1038,6 +1132,76 @@ public partial class @DEMOPARK_2025: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // StageSelect
+    private readonly InputActionMap m_StageSelect;
+    private List<IStageSelectActions> m_StageSelectActionsCallbackInterfaces = new List<IStageSelectActions>();
+    private readonly InputAction m_StageSelect_OneStage;
+    private readonly InputAction m_StageSelect_TwoStage;
+    private readonly InputAction m_StageSelect_ThreeStage;
+    private readonly InputAction m_StageSelect_AButton;
+    public struct StageSelectActions
+    {
+        private @DEMOPARK_2025 m_Wrapper;
+        public StageSelectActions(@DEMOPARK_2025 wrapper) { m_Wrapper = wrapper; }
+        public InputAction @OneStage => m_Wrapper.m_StageSelect_OneStage;
+        public InputAction @TwoStage => m_Wrapper.m_StageSelect_TwoStage;
+        public InputAction @ThreeStage => m_Wrapper.m_StageSelect_ThreeStage;
+        public InputAction @AButton => m_Wrapper.m_StageSelect_AButton;
+        public InputActionMap Get() { return m_Wrapper.m_StageSelect; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(StageSelectActions set) { return set.Get(); }
+        public void AddCallbacks(IStageSelectActions instance)
+        {
+            if (instance == null || m_Wrapper.m_StageSelectActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_StageSelectActionsCallbackInterfaces.Add(instance);
+            @OneStage.started += instance.OnOneStage;
+            @OneStage.performed += instance.OnOneStage;
+            @OneStage.canceled += instance.OnOneStage;
+            @TwoStage.started += instance.OnTwoStage;
+            @TwoStage.performed += instance.OnTwoStage;
+            @TwoStage.canceled += instance.OnTwoStage;
+            @ThreeStage.started += instance.OnThreeStage;
+            @ThreeStage.performed += instance.OnThreeStage;
+            @ThreeStage.canceled += instance.OnThreeStage;
+            @AButton.started += instance.OnAButton;
+            @AButton.performed += instance.OnAButton;
+            @AButton.canceled += instance.OnAButton;
+        }
+
+        private void UnregisterCallbacks(IStageSelectActions instance)
+        {
+            @OneStage.started -= instance.OnOneStage;
+            @OneStage.performed -= instance.OnOneStage;
+            @OneStage.canceled -= instance.OnOneStage;
+            @TwoStage.started -= instance.OnTwoStage;
+            @TwoStage.performed -= instance.OnTwoStage;
+            @TwoStage.canceled -= instance.OnTwoStage;
+            @ThreeStage.started -= instance.OnThreeStage;
+            @ThreeStage.performed -= instance.OnThreeStage;
+            @ThreeStage.canceled -= instance.OnThreeStage;
+            @AButton.started -= instance.OnAButton;
+            @AButton.performed -= instance.OnAButton;
+            @AButton.canceled -= instance.OnAButton;
+        }
+
+        public void RemoveCallbacks(IStageSelectActions instance)
+        {
+            if (m_Wrapper.m_StageSelectActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IStageSelectActions instance)
+        {
+            foreach (var item in m_Wrapper.m_StageSelectActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_StageSelectActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public StageSelectActions @StageSelect => new StageSelectActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1103,5 +1267,12 @@ public partial class @DEMOPARK_2025: IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+    }
+    public interface IStageSelectActions
+    {
+        void OnOneStage(InputAction.CallbackContext context);
+        void OnTwoStage(InputAction.CallbackContext context);
+        void OnThreeStage(InputAction.CallbackContext context);
+        void OnAButton(InputAction.CallbackContext context);
     }
 }
