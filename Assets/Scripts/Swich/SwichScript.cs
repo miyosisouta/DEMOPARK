@@ -15,10 +15,10 @@ public class SwichScript : MonoBehaviour
         //衝突したオブジェクトの名前が"Player"の場合
         if(collision.gameObject.name == "Player")
         {
-            //オブジェクトを生成する位置を計算
-            Vector3 spawnPosition = new Vector2(37.84f, -1.86f);//transform.position + SpawnOffset;
-            //オブジェクトを生成
-            Instantiate(Swich_Push, spawnPosition,Quaternion.identity);
+            ////オブジェクトを生成する位置を計算
+            //Vector3 spawnPosition = new Vector2(37.84f, -1.86f);//transform.position + SpawnOffset;
+            ////オブジェクトを生成
+            //Instantiate(Swich_Push, spawnPosition,Quaternion.identity);
             //現在のオブジェクトを消す
             Destroy(gameObject);
             // MoveGroundObjectのMoveGroundスクリプトを呼び出す
